@@ -105,6 +105,7 @@ module.exports = function (irc, network) {
 			type: data.type,
 			time: data.time,
 			text: data.message,
+			tags: data.tags,
 			self: self,
 			from: from,
 			highlight: highlight,

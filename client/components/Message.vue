@@ -12,6 +12,7 @@
 		<span :aria-label="messageTimeLocale" class="time tooltipped tooltipped-e"
 			>{{ messageTime }}
 		</span>
+		<pre v-if="hasTags">{{ message.tags }}</pre>
 		<template v-if="message.type === 'unhandled'">
 			<span class="from">[{{ message.command }}]</span>
 			<span class="content">
@@ -93,6 +94,7 @@ import Username from "./Username.vue";
 import LinkPreview from "./LinkPreview.vue";
 import ParsedMessage from "./ParsedMessage.vue";
 import MessageTypes from "./MessageTypes";
+import isEmpty from "lodash/isEmpty";
 
 MessageTypes.ParsedMessage = ParsedMessage;
 MessageTypes.LinkPreview = LinkPreview;
@@ -128,6 +130,9 @@ export default {
 		},
 		messageComponent() {
 			return "message-" + this.message.type;
+		},
+		hasTags() {
+			return !isEmpty(this.message.tags);
 		},
 	},
 	methods: {

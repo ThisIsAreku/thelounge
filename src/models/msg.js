@@ -20,6 +20,7 @@ class Msg {
 			from: {},
 			id: 0,
 			previews: [],
+			tags: {},
 			text: "",
 			type: Msg.Type.MESSAGE,
 			self: false,
